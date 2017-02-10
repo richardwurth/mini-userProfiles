@@ -6,11 +6,19 @@
     <link rel="stylesheet" href="styles.css"></link>
 </head>
 <body ng-controller="MainController">
-    
-    {{thisAppIsBroken}}
-    
+
+  <ul style="position:relative">
+    <li ng-repeat="user in users" ng-class="{favorite: user.isFavorite}" ng-style="{'background-color': user.isFavorite ? 'yellow' : 'white'}">
+      <img ng-src="{{user.avatar}}" style="border-radius: 100px" ng-click="toggleFavorite(user.id)">
+      {{user.first_name}} {{user.last_name}}
+    </li>
+  </ul>
+
+    <span style="color:red">{{users}}</span>
+
      <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular.js"></script>
      <script src="app.js"></script>
      <script src="controller.js"></script>
+     <script src="mainService.js"></script>
 </body>
 </html>
